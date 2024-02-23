@@ -1,16 +1,15 @@
 import { useState } from "react";
+import { dummyContacts } from "./assets/data/contacts";
 import "./App.css";
-import ContactCard from "./components/ContactCard/ContactCard";
+import ContactList from "./components/ContactList/ContactList";
 
 function App() {
+  const [contacts, setContacts] = useState(dummyContacts);
   return (
     <div className="page">
       <h1>React Contacts</h1>
-      <ContactCard
-        name={"Jenny Smith"}
-        number={" 808-867-5309"}
-        email={" jenny@gmail.com"}
-      />
+
+      <ContactList contacts={contacts} />
     </div>
   );
 }

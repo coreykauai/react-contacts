@@ -8,7 +8,7 @@ function App() {
   const [contacts, setContacts] = useState(dummyContacts);
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
-  const [phoneNumber, setPhoneNumber] = useState("");
+  const [number, setNumber] = useState("");
   const [email, setEmail] = useState("");
 
   return (
@@ -58,13 +58,13 @@ function App() {
             guide={true}
             onChange={(event) => {
               const value = event.target.value;
-              setPhoneNumber(value);
+              setNumber(value);
             }}
           />
         </label>
 
         <label>
-          Email Address:{" "}
+          Email Address:
           <input
             type="email"
             pattern=".+@example\.com"
@@ -78,6 +78,16 @@ function App() {
           type="submit"
           onClick={(event) => {
             event.preventDefault();
+            const newContact = {
+              firstName,
+              lastName,
+              number,
+              email,
+            };
+
+            const updatedContacts = [...contacts, newContact];
+            setContacts(updatedContacts);
+
             console.log("Submit clicked!");
           }}
         >

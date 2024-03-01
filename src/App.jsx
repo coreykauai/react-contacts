@@ -13,6 +13,16 @@ function App() {
 
       <ContactForm
         onFormSubmissionHandler={(newContact) => {
+          const isEmailOrPhoneinContacts = contacts.some((contact) => {
+            return (
+              contact.number === newContact.number ||
+              contact.email === newContact.email
+            );
+          });
+          if (isEmailOrPhoneinContacts) {
+            alert("dupe");
+            return;
+          }
           const updatedContacts = [...contacts, newContact];
           setContacts(updatedContacts);
         }}

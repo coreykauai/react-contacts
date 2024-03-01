@@ -20,7 +20,7 @@ function App() {
             );
           });
           if (isEmailOrPhoneinContacts) {
-            alert("dupe");
+            alert("Duplicate Card");
             return;
           }
           const updatedContacts = [...contacts, newContact];
